@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && npx babel-node src/server.js",
+    "start": "npm run build && node src/server.js",
     "build": "rm -rf public && npx webpack"
   },
   "author": "",
