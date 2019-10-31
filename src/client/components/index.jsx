@@ -9,7 +9,7 @@ class HomePage extends React.Component {
         this.thing = 1
     }
     render() {
-        return (<div>I'm your first component! </div>)
+        return (<div>Hi There, this site is bare bones and still being worked on! </div>)
     }
 }
 
