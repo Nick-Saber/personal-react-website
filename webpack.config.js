@@ -10,18 +10,39 @@ module.exports = {
     },
     module: {
         rules: [
+            //bundling javascript and jsx, also transpiles to ES5
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            //bundling css files
+            {
+                   test: /\.css$/,
+                use: [
+                  'style-loader',
+                   'css-loader',
+                 ],
+            },
+            //bundle images and gifs
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                    },
+                ],
             }
         ]
     },
     resolve :
         {
-            extensions : ['.js','.jsx']
+            extensions : ['.js','.jsx', '.png'],
+            alias: {
+                src: path.resolve(__dirname, 'src'),
+            },
         },
     plugins: [
         new HtmlWebpackPlugin({
