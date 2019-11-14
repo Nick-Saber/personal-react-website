@@ -1,27 +1,59 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyPhoto from 'src/static/images/Angels_landing.png'
-import ResizeImage from 'react-resize-image'
+import AboutMeView from "src/client/components/views/aboutMe";
+import {Tabs, Tab} from 'material-ui';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
-class HomePage extends React.Component {
+class LandingPage extends React.Component {
     constructor(props) {
         super(props)
-        this.thing = 1
+        this.state = {
+            tabSelected: 'AboutMeView'
+        }
+        this.renderTabChoice = this.renderTabChoice.bind(this)
+
     }
+
+    renderTabChoice() {
+        var selectedTab = this.state.tabSelected
+        switch (selectedTab) {
+            case 'AboutMeView':
+                return <AboutMeView/>
+            case 'Misc':
+                return (
+                    <div>
+                        BLah Blah Blah
+                    </div>
+                )
+            default:
+                return "ERRROROROR"
+        }
+    }
+
+
+
     render() {
-        return (<div>
-            <div style={{display:"flex", "justify-content":"center"}} >
-                <ResizeImage src={MyPhoto} style={{width:"30%", 'border-radius': "75%"}} alt="Angels Landing - It was the scariest hike of my life!"/>
+        return (
+            <MuiThemeProvider>
+            <div>
+                <div>
+                    <Tabs value={this.state.tabSelected}
+                          onChange={(tab)=>{this.setState({tabSelected: tab})}}
+                    >
+                        <Tab value={'AboutMeView'} label={'About Me'}> </Tab>
+                        <Tab value={'Misc'} label={'Random'}></Tab>
+                    </Tabs>
+                </div>
+                <div>
+                {this.renderTabChoice()}
+                </div>
             </div>
-            <div style={{display:"flex", "justify-content":"center", "align-items":"center", "flex-direction":"column"}}>
-                <h1 style={{display:'block'}}> Nicholas Reza Saber </h1>
-                <p style={{display:'block'}}> Hi there and welcome to my website! This site is bare bones and still being worked on!</p>
-            </div>
-            </div>)
+            </MuiThemeProvider>
+        )
     }
 }
 
 
 
-ReactDOM.render(<HomePage/>, document.getElementById('root'));
+ReactDOM.render(<LandingPage/>, document.getElementById('root'));

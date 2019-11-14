@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path')
 
 module.exports = {
-
+    devtool: 'eval-source-map',
     entry: path.resolve(__dirname, "src/client/components/index.jsx"), //relative to root of the application
     output: {
         filename: 'app.bundle.js',
