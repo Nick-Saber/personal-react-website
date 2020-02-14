@@ -1,7 +1,8 @@
-import MyPhoto from 'src/static/images/Angels_landing.png'
+import { MyPhoto } from 'src/client/static/images/image_urls'
 import ResizeImage from 'react-resize-image'
 import React from "react";
-
+import { Avatar } from '@material-ui/core';
+/*<ResizeImage src={MyPhoto} style={{width:"30%", 'border-radius': "75%"}} alt="Angels Landing - It was the scariest hike of my life!"/>*/
 
 
 class AboutMeView extends React.Component {
@@ -12,7 +13,7 @@ class AboutMeView extends React.Component {
     render() {
         return (<div>
             <div style={{display:"flex", "justify-content":"center"}} >
-                <ResizeImage src={MyPhoto} style={{width:"30%", 'border-radius': "75%"}} alt="Angels Landing - It was the scariest hike of my life!"/>
+                <Avatar  alt="Me trying to look professionally into the camera" src={MyPhoto}/>
             </div>
             <div style={{display:"flex", "justify-content":"center", "align-items":"center", "flex-direction":"column"}}>
                 <h1 style={{display:'block'}}> Nicholas Reza Saber </h1>

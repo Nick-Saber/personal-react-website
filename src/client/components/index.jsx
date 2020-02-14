@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import AboutMeView from "src/client/components/views/aboutMe";
-import {Tabs, Tab} from 'material-ui';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Tabs, Tab} from '@material-ui/core';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 
 class LandingPage extends React.Component {
@@ -41,8 +41,14 @@ class LandingPage extends React.Component {
                     <Tabs value={this.state.tabSelected}
                           onChange={(tab)=>{this.setState({tabSelected: tab})}}
                     >
-                        <Tab value={'AboutMeView'} label={'About Me'}> </Tab>
-                        <Tab value={'Misc'} label={'Random'}></Tab>
+                        <Tab value={'AboutMeView'}
+                             label={'About Me'}
+                             style={{defaultTab:{'color': '#ffe2bf', backgroundColor:'#FFFBF5'}}}>
+                        </Tab>
+                        <Tab value={'Misc'}
+                             label={'Random'}
+                             style={{defaultTab:{'color': '#ffe2bf', backgroundColor:'#FFFBF5'}}}>
+                        </Tab>
                     </Tabs>
                 </div>
                 <div>
