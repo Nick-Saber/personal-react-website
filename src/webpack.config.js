@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const path = require('path')
 
 //package.json uses the --config  src/webpack.config.js flag for npx webpack thats because it should
@@ -45,9 +47,12 @@ module.exports = {
             }
         ]
     },
+    //change how modules are resolved
     resolve :
         {
+            //resolve module imports looking for extensions in this order
             extensions : ['.js','.jsx', '.png'],
+            //alias src to the directory this webpack config is in
             alias: {
                 src: path.resolve(__dirname),
             },
@@ -58,5 +63,9 @@ module.exports = {
             template: path.resolve(__dirname, 'client', 'index.html'),
             filename: 'index.html'
         })
-    ]
+    ],
+    //uglify to reduce bundle size
+    optimization: {
+        minimizer: [new UglifyJsPlugin()],
+    },
 }
