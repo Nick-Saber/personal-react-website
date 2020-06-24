@@ -47,7 +47,7 @@ module.exports = {
     },
     resolve :
         {
-            extensions : ['.js','.jsx', '.png'],
+            extensions : ['.js','.jsx'],
             alias: {
                 src: path.resolve(__dirname),
             },
@@ -56,7 +56,9 @@ module.exports = {
         //links the bundle to an html template in the output
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'client', 'index.html'),
-            filename: 'index.html'
+            filename: 'index.html',
+            inlineSource: '.(js|css)$' // embed all javascript and css inline
+
         })
     ]
 }
