@@ -8,7 +8,7 @@ const path = require('path')
 module.exports = {
     devtool: 'eval-source-map',
     //where to start searching
-    entry: path.resolve(__dirname, "client/components/index.jsx"), //relative to root of the application src folder,
+    entry: path.resolve(__dirname, "client/index.jsx"), //relative to root of the application src folder,
     //where to store the bundle output
     output: {
         filename: 'app.bundle.js',
@@ -57,7 +57,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'client', 'index.html'),
             filename: 'index.html',
-            inlineSource: '.(js|css)$' // embed all javascript and css inline
+            // inlineSource: '.(js|css)$' // embed all javascript and css inline
 
         })
     ]
